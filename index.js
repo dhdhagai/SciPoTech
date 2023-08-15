@@ -10,7 +10,7 @@ app.use(express.static(path.resolve('./public')))
 async function f()
 {const { Configuration, OpenAIApi } = require("openai");
 const configuration = new Configuration({
-    apiKey: "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",
+    apiKey: process.env.API_KEY,
   });
   const openai = new OpenAIApi(configuration);
   await openai.createCompletion({
