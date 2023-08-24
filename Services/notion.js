@@ -3,10 +3,10 @@ const { Client } = require('@notionhq/client')
 
 // Init client
 const notion = new Client({
-  auth: 'secret_QmXiYpRxYTbiSSbc8boHg940k7zRfDeVPku6ACQ2KDJ',
+  auth: process.env.LOGIN_ID,
 })
 
-const database_id = '9a710b84bf874ae0ab1fa2c64e062c9c'
+const database_id = process.env.DB_ID
 
 async function getVideos() {
   const payload = {
