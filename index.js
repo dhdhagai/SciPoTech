@@ -18,9 +18,12 @@ function createWindow () {
 
   win.loadFile('./public/index.html')
 }
-app.whenReady().then(() => {
+try{app.whenReady().then(() => {
   createWindow()
-});
+});}
+catch(e){
+console.log('Running Node.js. Please Run "npx electron ." to open an interface. http://localhost:8000')
+}
 require('dotenv').config();
 server.use(express.static(path.resolve('./public')))
 for (let i = 0; i < rts.r.length; i++) {
