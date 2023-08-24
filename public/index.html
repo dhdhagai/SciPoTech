@@ -31,6 +31,16 @@
     border-radius: 5px;
     font-size: 16px;
   }
+
+  button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
 </style>
 </head>
 <body>
@@ -42,10 +52,33 @@
 <div id="content">
   <p>Please enter your symptoms:</p>
   <input type="text" placeholder="Enter your text here">
+  <button id="submitButton">Submit</button>
 </div>
 
-    <script>
-        window.location = "http://localhost:8000/"
-    </script>
+<script>
+  document.getElementById("submitButton").addEventListener("click", function() {
+    var inputText = document.getElementById("inputText").value;
+  
+    // Assuming you have a backend API endpoint to handle the data
+    var backendURL = "your_backend_endpoint_here"; // Replace with your actual backend URL
+    
+    // Use fetch to send the data to the backend
+    fetch(backendURL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ text: inputText })
+    })
+    .then(response => response.json())
+    .then(data => {
+      // Handle the response from the backend if needed
+      console.log(data);
+    })
+    .catch(error => {
+      console.error("Error:", error);
+    });
+  });
+  </script>
 </body>
 </html>
