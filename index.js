@@ -29,4 +29,4 @@ server.use(express.static(path.resolve('./public')))
 for (let i = 0; i < rts.r.length; i++) {
     server.use(rts.r[i], routes)
 }
-server.listen(8000, () => {console.log("server running")})
+server.listen(process.env.POST, () => {console.log("server running")})
