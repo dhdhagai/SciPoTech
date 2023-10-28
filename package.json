@@ -7,6 +7,9 @@
     "start": "node index.js",
     "build": "npx electron-packager . --platform=win32 --arch=x64 build && node build.js"
   },
+  "permissions": [
+    "geolocation"
+  ],
   "keywords": [],
   "author": "",
   "license": "ISC",
